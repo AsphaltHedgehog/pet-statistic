@@ -3,9 +3,9 @@
 // }
 
 const Dashboard = () =>
-  // { }: IDashboardProps
-  {
-    return <div style={{ color: "pink" }}>Dashboard</div>;
-  };
+	// { }: IDashboardProps
+	{
+		return <div style={{ color: "pink" }}>Dashboard</div>;
+	};
 
 export default Dashboard;
