@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { themeSettings } from "./theme";
+import { themeSettings } from "@/theme";
 import { Box, CssBaseline } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
-import Dashboard from "./pages/dashboard/Dashboard";
+import Dashboard from "@/pages/dashboard";
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings), []);
