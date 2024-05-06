@@ -1,7 +1,5 @@
-import { RootState } from "./../store";
+import { RootState } from "@/redux/store";
 
-export const selectGetUser = (state: RootState) => state.user.user;
-export const selectGetUserFavorite = (state: RootState) => state.user.user.favorites;
-export const selectUserError = (state: RootState) => state.user.error;
-export const selectUserIsLoading = (state: RootState) => state.user.isLoadingUser;
-export const selectAvatarIsLoading = (state: RootState) => state.user.isLoadingAvatar;
+export const selectGetGraphData = (state: RootState) => state.graphData.data;
+export const selectGraphDataError = (state: RootState) => state.graphData.error;
+export const selectGraphDataIsLoading = (state: RootState) => state.graphData.isLoadingUser;
