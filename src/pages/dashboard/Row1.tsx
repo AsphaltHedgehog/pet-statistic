@@ -5,19 +5,24 @@ import { useMemo } from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 const Row1 = () => {
-	const { palette } = useTheme;
+	const { palette } = useTheme();
 
 	const { data } = useGetKpisQuery();
-	console.log("🚀 ~ Row1 ~ data:", data);
+	// console.log("🚀 ~ Row1 ~ data:", data);
+
+	if (data) {
+		console.log(data.kpis[0].monthlyData);
+	}
 
 	const revenueExpenses = useMemo(() => {
 		return (
 			data &&
-			data[0].mounthlyData.map(({ mouth, revenue, expenses }) => {
-				console.log(mouth, revenue, expenses);
+			data.kpis[0].monthlyData &&
+			data.kpis[0].monthlyData.map(({ month, revenue, expenses }) => {
+				console.log(month, revenue, expenses);
 
 				return {
-					name: mouth.substring(0, 3),
+					name: month.substring(0, 3),
 					revenue: revenue,
 					expenses: expenses,
 				};
