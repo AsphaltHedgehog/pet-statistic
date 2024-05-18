@@ -6,7 +6,7 @@ export interface IGetKpisResponse {
 	totalRevenue: number;
 	totalExpenses: number;
 	expensesByCategory: IExpensesByCategory;
-	mounthlyData: IMouth[];
+	monthlyData: IMouth[];
 	dailyData: IDay[];
 }
 
