@@ -2,7 +2,7 @@ import DashboardBox from "@/components/DashboardBox";
 import { useGetKpisQuery } from "@/redux/graphData/operations";
 import { useTheme } from "@mui/material";
 import { useMemo } from "react";
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 const Row1 = () => {
 	const { palette } = useTheme();
@@ -12,7 +12,6 @@ const Row1 = () => {
 	const revenueExpenses = useMemo(() => {
 		return (
 			data &&
-			data.kpis[0].monthlyData &&
 			data.kpis[0].monthlyData.map(({ month, revenue, expenses }) => {
 				return {
 					name: month.substring(0, 3),
@@ -33,22 +32,45 @@ const Row1 = () => {
 							height={400}
 							data={revenueExpenses}
 							margin={{
-								top: 10,
-								right: 30,
-								left: 0,
-								bottom: 0,
+								top: 15,
+								right: 25,
+								left: -10,
+								bottom: 60,
 							}}
 						>
-							<CartesianGrid strokeDasharray="3 3" />
-							<XAxis dataKey="name" />
-							<YAxis />
+							<defs>
+								<linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
+									<stop offset="5%" stopColor={palette.primary[300]} stopOpacity={0.5} />
+									<stop offset="95%" stopColor={palette.primary[300]} stopOpacity={0} />
+								</linearGradient>
+								<linearGradient id="colorExpenses" x1="0" y1="0" x2="0" y2="1">
+									<stop offset="5%" stopColor={palette.primary[300]} stopOpacity={0.5} />
+									<stop offset="95%" stopColor={palette.primary[300]} stopOpacity={0} />
+								</linearGradient>
+							</defs>
+							<XAxis dataKey="name" tickLine={false} style={{ fontSize: "10px" }} />
+							<YAxis
+								tickLine={false}
+								style={{ fontSize: "10px" }}
+								axisLine={{ strokeWidth: "0" }}
+								domain={[8000, 23000]}
+							/>
 							<Tooltip />
 							<Area
 								type="monotone"
 								dataKey="revenue"
+								dot={true}
 								stroke={palette.primary.main}
 								fillOpacity={1}
 								fill="url(#colorRevenue)"
+							/>
+							<Area
+								type="monotone"
+								dataKey="expenses"
+								dot={true}
+								stroke={palette.primary.main}
+								fillOpacity={1}
+								fill="url(#colorExpenses)"
 							/>
 						</AreaChart>
 					</ResponsiveContainer>
