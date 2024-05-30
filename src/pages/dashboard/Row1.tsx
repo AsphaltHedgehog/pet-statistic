@@ -1,4 +1,5 @@
 import DashboardBox from "@/components/DashboardBox";
+import BoxHeader from "@/components/boxHeader/BoxHeader";
 import { useGetKpisQuery } from "@/redux/graphData/operations";
 import { useTheme } from "@mui/material";
 import { useMemo } from "react";
@@ -22,11 +23,13 @@ const Row1 = () => {
 		);
 	}, [data]);
 
+
 	return (
 		<>
 			<DashboardBox gridArea="a">
+				<BoxHeader title="Revenue and Expenses" subtitle="top line represents revenue" sideText="+4%" />
 				{revenueExpenses && revenueExpenses.length > 0 && (
-					<ResponsiveContainer width="100%" height="100%">
+					<ResponsiveContainer width="100%" height="100%" maxHeight={392}>
 						<AreaChart
 							width={500}
 							height={400}
@@ -35,7 +38,7 @@ const Row1 = () => {
 								top: 15,
 								right: 25,
 								left: -10,
-								bottom: 60,
+								bottom: window.innerWidth > 1199 ? 10 : 60,
 							}}
 						>
 							<defs>
@@ -48,6 +51,7 @@ const Row1 = () => {
 									<stop offset="95%" stopColor={palette.primary[300]} stopOpacity={0} />
 								</linearGradient>
 							</defs>
+
 							<XAxis dataKey="name" tickLine={false} style={{ fontSize: "10px" }} />
 							<YAxis
 								tickLine={false}
