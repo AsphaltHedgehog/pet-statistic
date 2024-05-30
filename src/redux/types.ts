@@ -10,6 +10,10 @@ export interface IGetKpisResponse {
 	dailyData: IDay[];
 }
 
+export interface IGetKpisResponseData {
+	kpis: IGetKpisResponse[];
+}
+
 export interface IExpensesByCategory {
 	salaries: number;
 	supplies: number;
@@ -19,7 +23,7 @@ export interface IExpensesByCategory {
 export interface IMouth {
 	_id: string;
 	id: string;
-	mouth: string;
+	month: string;
 	revenue: number;
 	expenses: number;
 	nonOperationalExpenses: number;
