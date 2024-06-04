@@ -3,7 +3,18 @@ import BoxHeader from "@/components/boxHeader/BoxHeader";
 import { useGetKpisQuery } from "@/redux/graphData/operations";
 import { useTheme } from "@mui/material";
 import { useMemo } from "react";
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import {
+	AreaChart,
+	Area,
+	XAxis,
+	YAxis,
+	Tooltip,
+	ResponsiveContainer,
+	Line,
+	CartesianGrid,
+	Legend,
+	LineChart,
+} from "recharts";
 
 const Row1 = () => {
 	const { palette } = useTheme();
@@ -23,6 +34,18 @@ const Row1 = () => {
 		);
 	}, [data]);
 
+	const revenueProfit = useMemo(() => {
+		return (
+			data &&
+			data.kpis[0].monthlyData.map(({ month, revenue, expenses }) => {
+				return {
+					name: month.substring(0, 3),
+					revenue: revenue,
+					profit: (revenue - expenses).toFixed(2),
+				};
+			})
+		);
+	}, [data]);
 
 	return (
 		<>
@@ -81,7 +104,39 @@ const Row1 = () => {
 				)}
 			</DashboardBox>
 
-			<DashboardBox gridArea="b"></DashboardBox>
+			<DashboardBox gridArea="b">
+				<BoxHeader title="Profit and Revenue" sideText="+4%" />
+				{revenueExpenses && revenueExpenses.length > 0 && (
+					<ResponsiveContainer width="100%" height="100%" maxHeight={392}>
+						<LineChart
+							width={500}
+							height={400}
+							data={revenueProfit}
+							margin={{
+								top: 20,
+								right: 0,
+								left: -10,
+								bottom: window.innerWidth > 1199 ? -20 : 35,
+							}}
+						>
+							<CartesianGrid vertical={false} stroke={palette.grey[800]} />
+							<XAxis dataKey="name" tickLine={false} style={{ fontSize: "10px" }} />
+							<YAxis yAxisId="left" tickLine={false} style={{ fontSize: "10px" }} axisLine={false} />
+							<YAxis
+								yAxisId="right"
+								orientation="right"
+								tickLine={false}
+								style={{ fontSize: "10px" }}
+								axisLine={false}
+							/>
+							<Tooltip />
+							<Legend height={20} wrapperStyle={{ margin: "0 0 10px 0" }} />
+							<Line yAxisId="left" type="monotone" dataKey="profit" stroke={palette.tertiary[500]} />
+							<Line yAxisId="right" type="monotone" dataKey="revenue" stroke={palette.primary.main} />
+						</LineChart>
+					</ResponsiveContainer>
+				)}
+			</DashboardBox>
 
 			<DashboardBox gridArea="c"></DashboardBox>
 		</>
