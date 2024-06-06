@@ -8,11 +8,10 @@ export interface IGetKpisResponse {
 	expensesByCategory: IExpensesByCategory;
 	monthlyData: IMouth[];
 	dailyData: IDay[];
+	cratedAt: string;
+	updatedAt: string;
 }
 
-export interface IGetKpisResponseData {
-	kpis: IGetKpisResponse[];
-}
 
 export interface IExpensesByCategory {
 	salaries: number;
@@ -36,4 +35,15 @@ export interface IDay {
 	date: string;
 	revenue: number;
 	expenses: number;
+}
+
+export interface IGetProductsResponse {
+	_id: string;
+	id: string;
+	__v: string;
+	price: number;
+	expense: number;
+	transactions: Array<string>;
+	cratedAt: string;
+	updatedAt: string;
 }
