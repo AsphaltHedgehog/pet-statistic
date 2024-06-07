@@ -166,7 +166,7 @@ const Row1 = () => {
 							top: 17,
 							right: 15,
 							left: -5,
-							bottom: 58,
+							bottom: window.innerWidth > 1199 ? 0 : 40,
 						}}
 					>
 						<defs>
