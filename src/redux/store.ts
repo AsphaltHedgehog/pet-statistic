@@ -3,8 +3,8 @@ import { api } from "./graphData/operations";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 export const store = configureStore({
-	reducer: { [api.reducerPath]: api.reducer },
-	middleware: (getDefault) => getDefault().concat(api.middleware),
+  reducer: { [api.reducerPath]: api.reducer },
+  middleware: (getDefault) => getDefault().concat(api.middleware)
 });
 
 setupListeners(store.dispatch);

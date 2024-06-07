@@ -17,10 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Dashboard />} />
-              <Route
-                path="/predictions"
-                element={<div>Predictions page</div>}
-              />
+              <Route path="/predictions" element={<div>Predictions page</div>} />
             </Route>
           </Routes>
         </Box>

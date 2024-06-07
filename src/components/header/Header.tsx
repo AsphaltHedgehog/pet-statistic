@@ -24,9 +24,8 @@ const Header = () => {
               to="/"
               onClick={() => setSelectedPage("dashboard")}
               style={{
-                color:
-                  selectedPage === "dashboard" ? "inherit" : palette.grey[700],
-                textDecoration: "inherit",
+                color: selectedPage === "dashboard" ? "inherit" : palette.grey[700],
+                textDecoration: "inherit"
               }}
             >
               Dashboard
@@ -37,11 +36,8 @@ const Header = () => {
               to="/predictions"
               onClick={() => setSelectedPage("predictions")}
               style={{
-                color:
-                  selectedPage === "predictions"
-                    ? "inherit"
-                    : palette.grey[700],
-                textDecoration: "inherit",
+                color: selectedPage === "predictions" ? "inherit" : palette.grey[700],
+                textDecoration: "inherit"
               }}
             >
               Predictions
