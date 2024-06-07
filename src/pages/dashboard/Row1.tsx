@@ -121,7 +121,7 @@ const Row1 = () => {
 					)}
 				</DashboardBox>
 				<DashboardBox gridArea="b">
-					{revenueExpenses && revenueExpenses.length > 0 && (
+					{revenueProfit && revenueProfit.length > 0 && (
 						<>
 							<BoxHeader title="Profit and Revenue" sideText="+4%" />
 							<ResponsiveContainer width="100%" height="100%" maxHeight={392}>
@@ -156,7 +156,7 @@ const Row1 = () => {
 					)}
 				</DashboardBox>
 				<DashboardBox gridArea="c">
-					{revenueExpenses && revenueExpenses.length > 0 && (
+					{revenue && revenue.length > 0 && (
 						<>
 							<BoxHeader
 								title="Revenue Month by Month"
