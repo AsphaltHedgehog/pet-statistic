@@ -55,6 +55,8 @@ const Dashboard = () => {
     <Box
       width="100%"
       height="100%"
+      // TODO:
+      maxHeight={1280}
       display="grid"
       gap="1.5rem"
       sx={
