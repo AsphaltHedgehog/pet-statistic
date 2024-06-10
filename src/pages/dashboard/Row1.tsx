@@ -1,5 +1,5 @@
 import DashboardBox from "@/components/DashboardBox";
-import BoxHeader from "@/components/boxHeader/BoxHeader";
+import BoxHeader from "@/shared/boxHeader/BoxHeader";
 import { useGetKpisQuery } from "@/redux/graphData/operations";
 import { useTheme } from "@mui/material";
 import { useMemo } from "react";

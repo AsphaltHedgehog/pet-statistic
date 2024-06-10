@@ -1,6 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import DashboardBox from "@/components/DashboardBox";
-import BoxHeader from "@/components/boxHeader/BoxHeader";
+import BoxHeader from "@/shared/boxHeader/BoxHeader";
 import { useGetKpisQuery, useGetProductsQuery } from "@/redux/graphData/operations";
 import {
   CartesianGrid,
@@ -18,7 +18,7 @@ import {
   ZAxis
 } from "recharts";
 import { useMemo } from "react";
-import FlexBetween from "@/components/FlexBetween";
+import FlexBetween from "@/shared/FlexBetween";
 
 // Mocked data for PieChart
 const pieData = [

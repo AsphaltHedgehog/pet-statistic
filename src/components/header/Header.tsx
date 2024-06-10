@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Box, Typography, useTheme } from "@mui/material";
 import PixIcon from "@mui/icons-material/Pix";
-import FlexBetween from "../FlexBetween";
+import FlexBetween from "@/shared/FlexBetween";
 
 const Header = () => {
   const { palette } = useTheme();
