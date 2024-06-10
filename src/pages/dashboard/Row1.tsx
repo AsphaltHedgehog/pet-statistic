@@ -64,11 +64,11 @@ const Row1 = () => {
   return (
     <>
       <>
-        <DashboardBox gridArea="a" maxHeight={500}>
+        <DashboardBox gridArea="a">
           {revenueExpenses && revenueExpenses.length > 0 && (
             <>
               <BoxHeader title="Revenue and Expenses" subtitle="top line represents revenue" sideText="+4%" />
-              <ResponsiveContainer width="100%" height="100%" maxHeight={392}>
+              <ResponsiveContainer height="100%">
                 <AreaChart
                   width={500}
                   height={400}
@@ -77,7 +77,7 @@ const Row1 = () => {
                     top: 15,
                     right: 25,
                     left: -10,
-                    bottom: window.innerWidth > 1199 ? 10 : 60
+                    bottom: 60
                   }}
                 >
                   <defs>
@@ -120,11 +120,11 @@ const Row1 = () => {
             </>
           )}
         </DashboardBox>
-        <DashboardBox gridArea="b" maxHeight={500}>
+        <DashboardBox gridArea="b">
           {revenueProfit && revenueProfit.length > 0 && (
             <>
               <BoxHeader title="Profit and Revenue" sideText="+4%" />
-              <ResponsiveContainer width="100%" height="100%" maxHeight={392}>
+              <ResponsiveContainer height="100%">
                 <LineChart
                   width={500}
                   height={400}
@@ -133,7 +133,7 @@ const Row1 = () => {
                     top: 20,
                     right: 0,
                     left: -10,
-                    bottom: window.innerWidth > 1199 ? -20 : 35
+                    bottom: 55
                   }}
                 >
                   <CartesianGrid vertical={false} stroke={palette.grey[800]} />
@@ -155,7 +155,7 @@ const Row1 = () => {
             </>
           )}
         </DashboardBox>
-        <DashboardBox gridArea="c" maxHeight={500}>
+        <DashboardBox gridArea="c">
           {revenue && revenue.length > 0 && (
             <>
               <BoxHeader
@@ -163,7 +163,7 @@ const Row1 = () => {
                 subtitle="graph representing the revenue month by month"
                 sideText="+4%"
               />
-              <ResponsiveContainer width="100%" height="100%" maxHeight={274}>
+              <ResponsiveContainer height="100%">
                 <BarChart
                   width={500}
                   height={300}
@@ -172,7 +172,7 @@ const Row1 = () => {
                     top: 17,
                     right: 15,
                     left: -5,
-                    bottom: window.innerWidth > 1199 ? 0 : 40
+                    bottom: 58
                   }}
                 >
                   <defs>
