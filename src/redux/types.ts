@@ -46,3 +46,14 @@ export interface IGetProductsResponse {
   cratedAt: string;
   updatedAt: string;
 }
+
+export interface IGetTransactionsResponse {
+  _id: string;
+  id: string;
+  __v: string;
+  buyer: string;
+  amount: number;
+  productIds: Array<string>;
+  cratedAt: string;
+  updatedAt: string;
+}
