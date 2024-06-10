@@ -1,4 +1,4 @@
-import { Box, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { Row1, Row2, Row3 } from "@/pages/dashboard";
 
 const gridTemplateDesktop = `
@@ -49,7 +49,6 @@ const gridTemplatePhone = `
 
 const Dashboard = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1200px)");
-  const { palette } = useTheme();
 
   return (
     <Box
